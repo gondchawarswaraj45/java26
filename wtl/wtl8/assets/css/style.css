@@ -1,0 +1,139 @@
+:root {
+    --bg-color: #fcfcfc;
+    --text-color: #1a1a1a;
+    --text-dim: #737373;
+    --accent-color: #000000;
+    --error-color: #d93025;
+    --border-color: #e5e5e5;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.portal-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+}
+
+.logo-section {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+    background: transparent;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-bottom-color: var(--accent-color);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: opacity 0.2s;
+}
+
+.btn-login:hover {
+    opacity: 0.85;
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 13px;
+    margin-bottom: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.welcome-card {
+    border-top: 1px solid var(--border-color);
+    padding-top: 40px;
+}
+
+.student-meta {
+    margin-top: 24px;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 14px;
+}
+
+.meta-label {
+    color: var(--text-dim);
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid transparent;
+}
+
+.btn-back:hover {
+    color: var(--text-color);
+    border-bottom-color: var(--text-color);
+}

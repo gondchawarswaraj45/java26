@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="authApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auth | AngularJS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Ionicons for glyphs -->
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="authController">
+
+    <div class="auth-container">
+        <!-- Message Alerts -->
+        <div class="alert alert-{{message.type}}" ng-if="message.text">
+            {{message.text}}
+        </div>
+
+        <!-- Login View -->
+        <div class="glass-card fade-in" ng-show="view === 'login'">
+            <div class="header">
+                <h2>Welcome Back</h2>
+                <p>Enter your credentials to access your account</p>
+            </div>
+            <form name="loginForm" ng-submit="login()">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" ng-model="loginData.username" placeholder="johndoe" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" ng-model="loginData.password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" ng-disabled="loginForm.$invalid">Sign In</button>
+            </form>
+            <div class="footer-text">
+                Don't have an account? <span ng-click="setView('register')">Create One</span>
+            </div>
+        </div>
+
+        <!-- Registration View -->
+        <div class="glass-card fade-in" ng-show="view === 'register'">
+            <div class="header">
+                <h2>Join Us</h2>
+                <p>Register to start your premium journey</p>
+            </div>
+            <form name="registerForm" ng-submit="register()">
+                <div class="row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" ng-model="regData.firstname" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" ng-model="regData.lastname" placeholder="Doe" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" ng-model="regData.username" placeholder="johndoe" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" ng-model="regData.password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" ng-disabled="registerForm.$invalid">Create Account</button>
+            </form>
+            <div class="footer-text">
+                Already have an account? <span ng-click="setView('login')">Login</span>
+            </div>
+        </div>
+
+        <!-- Dashboard View (Mockup) -->
+        <div class="glass-card fade-in dashboard" ng-show="view === 'dashboard'">
+            <div class="profile-icon">
+                <ion-icon name="person-outline" style="color: white;"></ion-icon>
+            </div>
+            <h2>Hello, {{currentUser.firstname}}!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">You have successfully logged in as @{{currentUser.username}}</p>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; text-align: left;">
+                <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">User Details</p>
+                <div style="font-size: 0.95rem;">
+                    <p><strong>Name:</strong> {{currentUser.firstname}} {{currentUser.lastname}}</p>
+                    <p><strong>Account Type:</strong> Premium Member</p>
+                    <p><strong>Status:</strong> Active</p>
+                </div>
+            </div>
+
+            <button ng-click="logout()" style="background: transparent; border: 1px solid var(--border);">Sign Out</button>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
